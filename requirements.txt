@@ -1,4 +1,4 @@
 runpod
-auralis
+git+https://github.com/astramind-ai/Auralis.git#egg=auralis
 soundfile
 numpy
