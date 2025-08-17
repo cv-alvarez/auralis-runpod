@@ -1,0 +1,4 @@
+runpod
+auralis
+soundfile
+numpy
