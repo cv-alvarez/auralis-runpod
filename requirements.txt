@@ -1,4 +1,4 @@
-runpod
-auralis
-soundfile
-numpy
+runpod>=1.6.0
+auralis>=0.1.0
+soundfile>=0.12.1
+numpy>=1.24.0
