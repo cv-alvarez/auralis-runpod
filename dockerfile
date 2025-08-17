@@ -1,3 +1,4 @@
+
 FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -15,16 +16,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN python3 -m pip install --upgrade pip
 
-# Instala Torch con CUDA 12.1 primero
+# Instalar PyTorch primero
 RUN pip install torch==2.3.1+cu121 torchaudio==2.3.1+cu121 --index-url https://download.pytorch.org/whl/cu121
+
+# Instalar dependencias específicas una por una
+RUN pip install runpod==1.6.2
+RUN pip install auralis
+RUN pip install soundfile==0.12.1
+RUN pip install numpy==1.24.4
 
 WORKDIR /app
 
-# Copiar requirements e instalar
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-# Copiar handler
+# Copiar solo el handler (sin requirements.txt)
 COPY handler.py .
 
 CMD ["python3", "handler.py"]
