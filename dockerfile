@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN python3 -m pip install --upgrade pip
 
-# Instala torch con CUDA 12.1 (ajusta versión si lo necesitas)
+# Instala Torch con CUDA 12.1 primero
 RUN pip install torch==2.3.1+cu121 --index-url https://download.pytorch.org/whl/cu121
 
 WORKDIR /app
